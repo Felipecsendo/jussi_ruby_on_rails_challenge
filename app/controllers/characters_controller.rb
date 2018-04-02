@@ -6,7 +6,7 @@ class CharactersController < ApplicationController
   def search
     @characters = Character.all
     @query = params[:query]
-    @results = Character.where('name LIKE ?', @query)
+    @results = Character.where('name LIKE ?', "%#{@query}%")
   end
 
   def show
